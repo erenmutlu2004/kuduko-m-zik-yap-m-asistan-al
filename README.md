@@ -1,4 +1,4 @@
-Bu sistem özellikleri windows cmd terminal powershell de çalışır 
+Bu sistem özellikleri windows cmd terminal powershell android telefon termux powershell de çalışır 
 
 🚀 Özellikler
 Kuduko Müzik Yapım Asistan Al Yazdıklarınızı Yerine Getirir merhaba, nasılsın, seni sormalı, bugün naptın, ne yapıyorsun, hava durumu, saat şu anda kaç, notepad, hesap makinesi, youtube aç, müzik çalar aç, spotify aç, google harita aç, google telefon cihazımı bul aç, google gmail aç, edge tarayıcı aç, store aç, kamera aç, dosya gezgini aç, ayarları aç, pdf aç, tiktok aç, instagram aç, facebook aç, saat kaç, hangi aydayız, protokol, iletişim bilgiler, hakkında, sanatçı kimdir, seni kim geliştirdi, komutlar, müzik yükle, müzik çalar, çok basit şekilde para nasıl kazanılır, bana küfür etme, bana küfür et, bana hakaret et, bana çok pis küfür et, bana iltifat et, bana dövüş teknikleri öğret, nerelere gidebilirim, bugün neler yapmalıyım, yeni güncelleme ne zaman geliyor, neler yapıyorsun, takipçi nasıl kasılır, müzik nasıl napılır, mağaza,
