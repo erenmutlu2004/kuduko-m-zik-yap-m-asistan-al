@@ -1,9 +1,0 @@
-pkg update && pkg upgrade
-pkg install python
-pkg install wget curl git
-pkg install powershell
-pwsh
-PS /data/data/com.termux/files/home>
-wget https://sandbox:/mnt/data/komutlar_mobil_uyumlu.ps1 -O komutlar.ps1
-./komutlar.ps1
-powershell -ExecutionPolicy Unrestricted -File ./komutlar.ps1
