@@ -1,4 +1,5 @@
 pkg update && pkg upgrade
+pkg install python
 pkg install wget curl git
 pkg install powershell
 pwsh
