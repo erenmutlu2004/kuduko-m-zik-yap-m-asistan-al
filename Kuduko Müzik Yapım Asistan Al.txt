@@ -1,0 +1,67 @@
+# .NET Framework'ü yükle
+Add-Type -AssemblyName "System.Windows.Forms"
+Add-Type -AssemblyName "System.Drawing"
+
+# Formu oluştur
+$form = New-Object System.Windows.Forms.Form
+$form.Text = "Kuduko Müzik Yapım Asistan Al"
+$form.Size = New-Object System.Drawing.Size(500, 350)
+
+# Bir Label ekleyelim
+$label = New-Object System.Windows.Forms.Label
+$label.Text = "GitHub Repo Komutlarını Çalıştır"
+$label.Size = New-Object System.Drawing.Size(250, 20)
+$label.Location = New-Object System.Drawing.Point(150, 50)
+$form.Controls.Add($label)
+
+# Bir Button ekleyelim (GitHub'dan dosya indirmek için)
+$downloadButton = New-Object System.Windows.Forms.Button
+$downloadButton.Text = "Dosyayı İndir"
+$downloadButton.Size = New-Object System.Drawing.Size(150, 30)
+$downloadButton.Location = New-Object System.Drawing.Point(175, 100)
+$form.Controls.Add($downloadButton)
+
+# GitHub'dan dosya indirme işlevini ekleyelim
+$downloadButton.Add_Click({
+    $label.Text = "Dosya indiriliyor..."
+    
+    # GitHub'dan dosya indirmenin özel bir yolu vardır. Burada proje dosyasının doğru URL'si kullanılır.
+    $fileDownloadLink = "https://github.com/erenmutlu2004/KudukoM-zikYap-mAsistanAl/raw/main/Kuduko%20M%C3%BCzik%20Yap%C4%B1m%20Asistan%20Al.txt"  # Bu URL'yi doğru link ile değiştirin
+    $destinationPath = "C:\Users\$env:USERNAME\Downloads\Kuduko_Muzik_Yapim_Asistan_Al.txt"
+
+    # Dosyayı indir
+    Invoke-WebRequest -Uri $fileDownloadLink -OutFile $destinationPath
+
+    $label.Text = "Dosya indirildi!"
+})
+
+# Bir Button ekleyelim (İndirilen scripti çalıştırmak için)
+$runButton = New-Object System.Windows.Forms.Button
+$runButton.Text = "Komutları Çalıştır"
+$runButton.Size = New-Object System.Drawing.Size(150, 30)
+$runButton.Location = New-Object System.Drawing.Point(175, 150)
+$form.Controls.Add($runButton)
+
+# Scripti çalıştırma işlevini ekleyelim
+$runButton.Add_Click({
+    $label.Text = "Komut çalıştırılıyor..."
+    
+    # İndirilen dosyanın yolunu belirleyelim
+    $filePath = "C:\Users\$env:USERNAME\Downloads\Kuduko_Muzik_Yapim_Asistan_Al.txt"  # Gerçek script dosyasının adını ve yolunu buraya yazın
+    
+    # Dosyayı okuma ve komutları çalıştırma
+    $commands = Get-Content -Path $filePath
+    foreach ($command in $commands) {
+        # Komutu çalıştırma
+        try {
+            Invoke-Expression $command
+            $label.Text = "Komut başarıyla çalıştırıldı: $command"
+        }
+        catch {
+            $label.Text = "Hata oluştu: $command"
+        }
+    }
+})
+
+# Formu göster
+$form.ShowDialog()
